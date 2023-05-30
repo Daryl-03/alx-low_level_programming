@@ -15,7 +15,7 @@ void print_rev(char *s)
 }
 
 /**
- * @brief returns the length of a string
+ * _strlen returns the length of a string
  * @param s string to be checked
  *
  * @return int length of string
@@ -24,6 +24,7 @@ int _strlen(char *s)
 {
 	int i;
 
-	for (i = 0; s[i] != '\0'; i++);
+	for (i = 0; s[i] != '\0'; i++)
+		;
 	return (i);
 }
