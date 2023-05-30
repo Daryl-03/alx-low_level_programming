@@ -15,10 +15,10 @@ void print_rev(char *s)
 }
 
 /**
- * _strlen returns the length of a string
- * @param s string to be checked
+ * _strlen - returns the length of a string
+ * @s string to be checked
  *
- * @return int length of string
+ * Return: int length of string
  */
 int _strlen(char *s)
 {
