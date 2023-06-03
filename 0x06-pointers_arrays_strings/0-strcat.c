@@ -5,12 +5,13 @@
 * @src: string to append
 * Return: pointer to resulting string
 */
-char *_strcat(char *dest, char *src){
+char *_strcat(char *dest, char *src)
+{
 	int destLength, j;
 
-	for (destLength = 0;dest[destLength] != '\0';destLength++)
+	for (destLength = 0; dest[destLength] != '\0'; destLength++)
 		;
-	for (j=0;j!='\0';j++)
+	for (j = 0; j != '\0'; j++)
 		dest[destLength] = src[j];
 	dest[destLength] = src[j];
 
