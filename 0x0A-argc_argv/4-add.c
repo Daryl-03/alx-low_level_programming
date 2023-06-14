@@ -7,7 +7,7 @@
 * Return: 0 if no number is passed, 1 if one of the numbers contains
 * symbols that are not digits, otherwise return the sum of the numbers
 */
-int maint(int argc, char *argv[])
+int main (int argc, char *argv[])
 {
 	int i, j, sum = 0;
 
