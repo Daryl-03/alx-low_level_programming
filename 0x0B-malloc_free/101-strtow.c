@@ -11,48 +11,45 @@
 char **strtow(char *str)
 {
 	char **array;
-	int indexForArray = 0, indexForString = 0, indexForWord = 0, wordCount = 0, wordLength = 0;
+	int i = 0, j = 0, k = 0, wordCount = 0, wordLength = 0;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
-	for (indexForString = 0; str[indexForString]; indexForString++)
+	for (j = 0; str[j]; j++)
 	{
-		if (str[indexForString] != ' ' && (str[indexForString + 1] == ' ' || str[indexForString + 1] == '\0'))
+		if (str[j] != ' ' && (str[j + 1] == ' ' || str[j + 1] == '\0'))
 			wordCount++;
 	}
 
 	if (wordCount == 0)
 		return (NULL);
-
 	array = malloc(sizeof(char *) * (wordCount + 1));
-
 	if (array == NULL)
 		return (NULL);
 
-	for (indexForString = 0; str[indexForString]; indexForString++)
+	for (j = 0; str[j]; j++)
 	{
-		if (str[indexForString] != ' ')
+		if (str[j] != ' ')
 			wordLength++;
-		if (str[indexForString] != ' ' && (str[indexForString + 1] == ' ' || str[indexForString + 1] == '\0'))
+		if (str[j] != ' ' && (str[j + 1] == ' ' || str[j + 1] == '\0'))
 		{
-			array[indexForArray] = malloc(sizeof(char) * (wordLength + 1));
-			if (array[indexForArray] == NULL)
+			array[i] = malloc(sizeof(char) * (wordLength + 1));
+			if (array[i] == NULL)
 			{
-				for (; indexForArray >= 0; indexForArray--)
-					free(array[indexForArray]);
+				for (; i >= 0; i--)
+					free(array[i]);
 				free(array);
 				return (NULL);
 			}
-			for (indexForWord = 0; indexForWord < wordLength; indexForWord++)
-				array[indexForArray][indexForWord] = str[indexForString - wordLength + indexForWord + 1];
-			array[indexForArray][indexForWord] = '\0';
-			indexForArray++;
+			for (k = 0; k < wordLength; k++)
+				array[i][k] = str[j - wordLength + k + 1];
+			array[i][k] = '\0';
+			i++;
 			wordLength = 0;
 		}
 	}
-
-	array[indexForArray] = NULL;
+	array[i] = NULL;
 
 	return (array);
 }
