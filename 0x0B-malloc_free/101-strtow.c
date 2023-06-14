@@ -21,7 +21,6 @@ char **strtow(char *str)
 		if (str[j] != ' ' && (str[j + 1] == ' ' || str[j + 1] == '\0'))
 			wordCount++;
 	}
-
 	if (wordCount == 0)
 		return (NULL);
 	array = malloc(sizeof(char *) * (wordCount + 1));
@@ -50,6 +49,5 @@ char **strtow(char *str)
 		}
 	}
 	array[i] = NULL;
-
 	return (array);
 }
